@@ -42,6 +42,7 @@
 		84AF896268DD4AFFAF1CEC36 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1996BF6D1E4731B8387603 /* libRNGestureHandler.a */; };
 		9AF12676779343DAAE379886 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F971E1EF0E0442158DF1E272 /* libRNGestureHandler-tvOS.a */; };
 		0929E49235D642D5B85DD26F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09010F25A8E24A70B35D3820 /* libRNCWebView.a */; };
+		68A1D333E05D4A2295739FCF /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F31305A400B045FDB5651CCD /* libRCTVideo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +355,8 @@
 		F971E1EF0E0442158DF1E272 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		34E929B29AC74524959B1CCF /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; name = "RNCWebView.xcodeproj"; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		09010F25A8E24A70B35D3820 /* libRNCWebView.a */ = {isa = PBXFileReference; name = "libRNCWebView.a"; path = "libRNCWebView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A5394D52988341F2A87BD462 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; name = "RCTVideo.xcodeproj"; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F31305A400B045FDB5651CCD /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +387,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				84AF896268DD4AFFAF1CEC36 /* libRNGestureHandler.a in Frameworks */,
 				0929E49235D642D5B85DD26F /* libRNCWebView.a in Frameworks */,
+				68A1D333E05D4A2295739FCF /* libRCTVideo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +580,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				31301334E6C14724B90CDE61 /* RNGestureHandler.xcodeproj */,
 				34E929B29AC74524959B1CCF /* RNCWebView.xcodeproj */,
+				A5394D52988341F2A87BD462 /* RCTVideo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1206,11 +1211,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Debug;
@@ -1235,11 +1242,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Release;
@@ -1264,6 +1273,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Debug;
@@ -1287,6 +1297,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Release;
@@ -1319,11 +1330,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Debug;
@@ -1356,11 +1369,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Release;
@@ -1392,11 +1407,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Debug;
@@ -1428,11 +1445,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 				);
 			};
 			name = Release;

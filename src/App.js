@@ -1,19 +1,21 @@
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 
 import HomePage from './page/Home/HomePage';
-// import TaskPage from './page/Task/TaskPage';
+import TaskPage from './page/Task/TaskPage';
 // import MinePage from './page/Mine/MinePage';
 import DealPage from './page/Deal/DealPage';
+import VideoScreen from "./page/Task/VideoScreen";
+import NewsListScreen from "./page/Task/NewsListScreen";
 
-const TabNavigator = createBottomTabNavigator(
+const TabNav = createBottomTabNavigator(
     {
         Home: {
             screen: HomePage,
         },
-        // Task: {
-        //     screen: TaskPage,
-        // },
+        Task: {
+            screen: TaskPage,
+        },
         Deal: {
             screen: DealPage,
         }
@@ -21,7 +23,6 @@ const TabNavigator = createBottomTabNavigator(
         //     screen: MinePage,
         // }
     },
-
     {
         tabBarOptions: {
             //当前选中的tab bar的文本颜色和图标颜色
@@ -55,7 +56,7 @@ const TabNavigator = createBottomTabNavigator(
                 height: 45
             },
             //tab 页指示符的样式 (tab页下面的一条线).
-            indicatorStyle: {height: 0},
+            indicatorStyle: { height: 0 },
         },
         //tab bar的位置, 可选值： 'top' or 'bottom'
         tabBarPosition: 'bottom',
@@ -68,5 +69,22 @@ const TabNavigator = createBottomTabNavigator(
         //返回按钮是否会导致tab切换到初始tab页？ 如果是，则设置为initialRoute，否则为none。 缺省为initialRoute。
         backBehavior: 'none',
         initialRouteName: 'Home',
-    });
-export default createAppContainer(TabNavigator);
+    }
+);
+
+const TaskPageList = createStackNavigator({
+    Video: { screen: VideoScreen },
+    News: {screen: NewsListScreen},
+    TabNav: {
+        screen: TabNav,
+        navigationOptions: {
+            header: null  //顶部导航很多都会自己自定义，这里就为空
+        }
+    },
+    },
+    {
+        initialRouteName: 'TabNav',
+        headerMode: 'screen'
+    }
+);
+export default createAppContainer(TaskPageList);

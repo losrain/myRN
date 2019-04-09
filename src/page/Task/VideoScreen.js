@@ -80,37 +80,37 @@ export default class VideoScreen extends Component {
 
     onProgress = (data) => {
         this.setState({currentTime: data.currentTime});
-        console.log(data.currentTime + "hhh");
-        this.params = this.props.navigation.state.params;
-        console.log(this.state.tag + "lam");
-        console.log(this.state.duration * 0.1 + "sss");
-        if (data.currentTime > this.state.duration * 0.1 && this.state.tag !== 2) {
-            this.setState({paused: !this.state.paused});
-            Alert.alert('您需要分享App才能继续观看视频哦', '请选择', [
-                {
-                    text: '取消', onPress: () => {
-                        this.props.navigation.goBack();
-                        this.setState({
-                            paused: this.state.paused
-                        })
-                    }
-                },
-                {
-                    text: '分享', onPress: () => {
-                        this.props.navigation.navigate('Share', {
-                            returnData: (tag) => {
-                                this.setState({tag: tag});
-                            }
-                        });
-                    }
-                },
-            ]);
-        }
+        // console.log(data.currentTime + "hhh");
+        // this.params = this.props.navigation.state.params;
+        // console.log(this.state.tag + "lam");
+        // console.log(this.state.duration * 0.1 + "sss");
+        // if (data.currentTime > this.state.duration * 0.1 && this.state.tag !== 2) {
+        //     this.setState({paused: !this.state.paused});
+        //     Alert.alert('您需要分享App才能继续观看视频哦', '请选择', [
+        //         {
+        //             text: '取消', onPress: () => {
+        //                 this.props.navigation.goBack();
+        //                 this.setState({
+        //                     paused: this.state.paused
+        //                 })
+        //             }
+        //         },
+        //         {
+        //             text: '分享', onPress: () => {
+        //                 this.props.navigation.navigate('Share', {
+        //                     returnData: (tag) => {
+        //                         this.setState({tag: tag});
+        //                     }
+        //                 });
+        //             }
+        //         },
+        //     ]);
+        // }
     };
 
     onEnd = () => {
         this.setState({paused: true});
-        this.video.seek(0)
+        // this.video.seek(0)
     };
 
     onAudioBecomingNoisy = () => {
@@ -120,6 +120,15 @@ export default class VideoScreen extends Component {
     onAudioFocusChanged = (event: { hasAudioFocus: boolean }) => {
         this.setState({paused: !event.hasAudioFocus})
     };
+    onPause=()=>{
+        this.setState({paused: true});
+    }
+    onStart=()=>{
+        this.setState({paused: false});
+    }
+    onFull=()=>{
+        this.setState({resizeMode: 'cover'})
+    }
 
     getCurrentTimePercentage() {
         if (this.state.currentTime > 0) {
@@ -135,13 +144,11 @@ export default class VideoScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     style={styles.fullScreen}
-                    onPress={() => this.setState({paused: !this.state.paused})}>
+                    onPress={() => this.setState({paused: !this.state.paused})}> */}
                     <Video
-                        ref={(ref: Video) => {
-                            this.video = ref
-                        }}
+                        ref={(ref) => (this.player = ref)}
                         /* For ExoPlayer */
                         source={require('../../assets/background.mp4')}
                         style={styles.fullScreen}
@@ -153,11 +160,11 @@ export default class VideoScreen extends Component {
                         onLoad={this.onLoad}
                         onProgress={this.onProgress}
                         onEnd={this.onEnd}
-                        onAudioBecomingNoisy={this.onAudioBecomingNoisy}
-                        onAudioFocusChanged={this.onAudioFocusChanged}
-                        repeat={false}
+                        // onAudioBecomingNoisy={this.onAudioBecomingNoisy}
+                        // onAudioFocusChanged={this.onAudioFocusChanged}
+                        // repeat={false}
                     />
-                </TouchableOpacity>
+                {/* </TouchableOpacity> */}
                 <View style={styles.textStyle}>
                     <Text style={styles.volumeControl}
                           onPress={() => this.setState({paused: false})}>
@@ -170,7 +177,17 @@ export default class VideoScreen extends Component {
                             this.props.navigation.goBack()
                         }}/>
                 </View>
-
+                <View>
+                    <Button
+                        style={styles.btnStyle} title={'暂停'} color={'#73808080'}
+                        onPress={this.onPause}/>
+                    <Button
+                        style={styles.btnStyle} title={'开始'} color={'#73808080'}
+                        onPress={this.onStart}/>
+                    <Button
+                        style={styles.btnStyle} title={'全屏'} color={'#73808080'}
+                        onPress={this.onFull}/>
+                </View>
                 <View style={styles.controls}>
                     <View style={styles.progress}>
                         <View style={[styles.innerProgressCompleted, {flex: flexCompleted}]}/>

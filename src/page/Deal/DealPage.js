@@ -8,7 +8,7 @@ import {
     StyleSheet, Text,
 } from 'react-native';
 import CandleStickChartScreen from "../../common/CandleStickChartScreen";
-// import LineChartScreen from "../../common/LineChartGradientScreen";
+import LineChartScreen from "../../common/LineChartGradientScreen";
 import NavBar from "../../common/NavBar";
 
 const {width} = Dimensions.get('window');
@@ -45,7 +45,7 @@ export default class DealPage extends Component {
                 <ScrollView style={styles.container}>
                     <CandleStickChartScreen/>
                     <Text style={styles.text}>深度图</Text>
-                    {/* <LineChartScreen/> */}
+                    <LineChartScreen/>
                     <View backgroundColor={'#fff'} style={{height: 300, width: width}}>
                         <Text style={styles.textStyle2}>暂无数据</Text>
                         <Image

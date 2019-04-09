@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
     },
     img_view: {
         // height:100,
-        resizeMode: Image.resizeMode.center,
+        resizeMode: 'cover',
         // borderWidth:1,
         // paddingRight:5,
         // flex:1,
