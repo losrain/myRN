@@ -4,12 +4,12 @@ import {
     StyleSheet,
     BackHandler,
     ToastAndroid,
-    WebView,
+    // WebView,
     View,
     ActivityIndicator,
     StatusBar
 } from 'react-native';
-// import { WebView } from "react-native-webview";
+import { WebView } from "react-native-webview";
 
 const currentHeight = StatusBar.currentHeight;
 

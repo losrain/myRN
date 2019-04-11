@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Video from 'react-native-video';
+import Orientation  from 'react-native-orientation';
 
 function formatTime(second) {
     let h = 0, i = 0, s = parseInt(second);
@@ -47,7 +48,8 @@ export default class VideoScreen extends Component {
             resizeMode: 'contain',
             duration: 0.0,
             currentTime: 0.0,
-            paused: true,
+            paused: false,
+            landSpaceFlag:false,
         };
     }
 
@@ -120,6 +122,18 @@ export default class VideoScreen extends Component {
     onAudioFocusChanged = (event: { hasAudioFocus: boolean }) => {
         this.setState({paused: !event.hasAudioFocus})
     };
+    changePortrait(){
+        Orientation.lockToPortrait();
+        this.setState({
+            landSpaceFlag:false
+        });
+    };
+    changeLANDSCAPE(){
+        Orientation.lockToLandscape();
+        this.setState({
+            landSpaceFlag:true
+        });
+    };
     onPause=()=>{
         this.setState({paused: true});
     }
@@ -144,18 +158,20 @@ export default class VideoScreen extends Component {
 
         return (
             <View style={styles.container}>
-                {/* <TouchableOpacity
+                <TouchableOpacity
                     style={styles.fullScreen}
-                    onPress={() => this.setState({paused: !this.state.paused})}> */}
+                    onPress={() => this.setState({paused: !this.state.paused})}>
                     <Video
                         ref={(ref) => (this.player = ref)}
                         /* For ExoPlayer */
-                        source={require('../../assets/background.mp4')}
+                        // source={require('../../assets/background.mp4')}
+                        source={{uri: 'http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8'}}
                         style={styles.fullScreen}
                         rate={this.state.rate}
                         paused={this.state.paused}
                         volume={this.state.volume}
                         muted={this.state.muted}
+                        controls = {true}
                         resizeMode={this.state.resizeMode}
                         onLoad={this.onLoad}
                         onProgress={this.onProgress}
@@ -164,7 +180,7 @@ export default class VideoScreen extends Component {
                         // onAudioFocusChanged={this.onAudioFocusChanged}
                         // repeat={false}
                     />
-                {/* </TouchableOpacity> */}
+                </TouchableOpacity>
                 <View style={styles.textStyle}>
                     <Text style={styles.volumeControl}
                           onPress={() => this.setState({paused: false})}>
@@ -187,6 +203,12 @@ export default class VideoScreen extends Component {
                     <Button
                         style={styles.btnStyle} title={'全屏'} color={'#73808080'}
                         onPress={this.onFull}/>
+                    <TouchableOpacity onPress={() => this.changePortrait()}>
+                        <Text> 竖屏 </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.changeLANDSCAPE()}>
+                        <Text > 横屏 </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.controls}>
                     <View style={styles.progress}>

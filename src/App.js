@@ -3,7 +3,7 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator } fr
 
 import HomePage from './page/Home/HomePage';
 import TaskPage from './page/Task/TaskPage';
-// import MinePage from './page/Mine/MinePage';
+import MinePage from './page/Mine/MinePage';
 import DealPage from './page/Deal/DealPage';
 import VideoScreen from "./page/Task/VideoScreen";
 import NewsListScreen from "./page/Task/NewsListScreen";
@@ -18,10 +18,10 @@ const TabNav = createBottomTabNavigator(
         },
         Deal: {
             screen: DealPage,
+        },
+        Mine: {
+            screen: MinePage,
         }
-        // Mine: {
-        //     screen: MinePage,
-        // }
     },
     {
         tabBarOptions: {
