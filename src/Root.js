@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 // import {Provider} from 'react-redux';
 // import configureStore from './reducers/configureStore';
 import App from './App';
-// import SplashScreen from "react-native-splash-screen";
+import SplashScreen from "react-native-splash-screen";
 // import JPushModule from "jpush-react-native";
 
 
@@ -20,8 +20,8 @@ export default class Root extends Component {
 
       }
 
-    // componentDidMount() {
-    //     SplashScreen.hide(); // 隐藏启动屏
+    componentDidMount() {
+        SplashScreen.hide(); // 隐藏启动屏
     //     // 新版本必需写回调函数
     //     // JPushModule.notifyJSDidLoad();
     //     JPushModule.notifyJSDidLoad((resultCode) => {
@@ -44,7 +44,7 @@ export default class Root extends Component {
     //         // 可执行跳转操作，也可跳转原生页面
     //         // this.props.navigation.navigate("SecondActivity");
     //     });
-    // }
+    }
 
     // componentWillUnmount() {
     //     JPushModule.removeReceiveCustomMsgListener();
